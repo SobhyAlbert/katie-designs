@@ -4,15 +4,15 @@
    CSS background. Shown once per browser (localStorage); later visits / pages / reduced
    motion / resize show the static image immediately. Preview: ?bgt=<seconds>. */
 (()=>{const c=document.getElementById("bg");if(!c)return;
-const IMG="images/starry-night.jpg?v=5",KEY="kdStarryPainted";
+const IMG="images/starry-night.jpg?v=6",KEY="kd-painted-v6";
 const q=new URLSearchParams(location.search),ff=q.has("bgt")?+q.get("bgt"):null;
-const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
-let seen=false;try{seen=localStorage.getItem(KEY)==="1";}catch(e){}
+const still=matchMedia("(prefers-reduced-motion: reduce)").matches,replay=q.has("replay");
+let seen=false;try{localStorage.removeItem("kdStarryPainted");seen=!replay&&sessionStorage.getItem(KEY)==="1";}catch(e){}
 function showStatic(){let d=document.getElementById("bgstatic");if(!d){d=document.createElement("div");d.id="bgstatic";d.setAttribute("aria-hidden","true");c.after(d);}
  d.style.backgroundImage=`url(${IMG})`;c.remove();}
-if(ff===null&&(still||seen)){showStatic();return;}
+if(ff===null&&seen){showStatic();return;}
 const x=c.getContext("2d");let W,H,S,dpr,raf=0,strokes=[],k=0,t=0,last=0,done=false,img,src,data,sw,sh;
-const PAINT=9,FADE=1.6; // seconds
+const PAINT=still?7:9,FADE=1.6; // seconds
 let rs=7;const rnd=()=>{rs=(rs*16807)%2147483647;return(rs-1)/2147483646;};
 function cover(){const mob=W<H,s=Math.max(W/img.width,H/img.height),dw=img.width*s,dh=img.height*s;
  const fx=mob?.22:.5,fy=.5;return[(W-dw)*fx,(H-dh)*fy,dw,dh];}
@@ -44,12 +44,12 @@ function step(dt){t+=dt;const target=Math.min(strokes.length,Math.floor(strokes.
  if(t>PAINT){const f=Math.min(1,(t-PAINT)/FADE),[ox,oy,dw,dh]=cover();x.globalAlpha=Math.min(1,f*.35+.02);x.drawImage(img,ox,oy,dw,dh);x.globalAlpha=1;
   if(f>=1)finish();}}
 function finish(){if(done)return;done=true;cancelAnimationFrame(raf);
- if(ff===null){try{localStorage.setItem(KEY,"1");}catch(e){}}
+ if(ff===null){try{sessionStorage.setItem(KEY,"1");}catch(e){}}
  removeEventListener("resize",onResize);document.removeEventListener("visibilitychange",onVis);
  data=null;strokes=null;if(src){src.width=src.height=0;src=null;}showStatic();}
 function frame(now){if(done)return;raf=requestAnimationFrame(frame);const dt=Math.min(.1,last?(now-last)/1000:0);last=now;step(dt);}
 function onVis(){cancelAnimationFrame(raf);last=0;if(!document.hidden&&!done)raf=requestAnimationFrame(frame);}
-function onResize(){finish();} // never repaint: just switch to the static cover image
+let w0=innerWidth;function onResize(){if(Math.abs(innerWidth-w0)>120)finish();} // ignore mobile URL-bar height changes; big width change -> static image
 img=new Image();img.decoding="async";img.onerror=showStatic;
 img.onload=()=>{setup();
  if(ff!==null){if(ff>=PAINT+FADE){finish();return;}let s=0;while(s<ff){step(.05);s+=.05;}if(!done&&ff<0.01)return;return;} // preview: freeze at that moment

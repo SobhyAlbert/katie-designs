@@ -19,3 +19,5 @@ When you change style.css / app.js / config.js / bg.js, bump the `?v=` number on
 https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
 — **public domain** (the artist died in 1890; faithful reproductions of 2D public-domain art are public domain). Resized/compressed for the web.
 `bg.js` paints it once with brush strokes, cross-fades to the image, then stops; repeat visits show the static image (localStorage key `kdStarryPainted`; clear it to replay).
+
+Background plays once per browser session (sessionStorage key `kd-painted-v6`), also with reduced motion. Add `?replay=1` to force it again.
