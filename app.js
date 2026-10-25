@@ -35,3 +35,6 @@ f.addEventListener("submit",async e=>{e.preventDefault();let ok=true;
  catch(_){const body=["name","email","artwork_type","size","description","deadline","budget"].map(k=>`${k}: ${data[k]||""}`).join("\n");
   location.href=`mailto:${SITE.formEmail}?subject=${encodeURIComponent("Commission request")}&body=${encodeURIComponent(body)}`;}
  f.hidden=true;$("#thanks").hidden=false;$("#thanks").focus();});
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}}),{threshold:.08});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));

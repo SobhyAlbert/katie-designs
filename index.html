@@ -1,28 +1,29 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Katie Designs — Art Portfolio</title><meta name="description" content="Katie Designs: portraits, landscapes, sketches, digital art and paintings. Buy digital copies or request a commission.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css"></head><body>
+<canvas id="bg" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
-<header><nav class="nav" aria-label="Main"><a class="logo" href="#top">Katie Designs</a>
+<header><nav class="nav" aria-label="Main"><a class="logo" href="#top">Katie <span>Designs</span></a>
 <ul><li><a class="l" href="#gallery">Gallery</a></li><li><a class="l" href="#soon">New</a></li><li><a class="l" href="#about">About</a></li><li><a class="l" href="#commission">Commission</a></li><li><a class="l" href="#contact">Contact</a></li><li><a class="l" href="about.html" lang="ar">عربي</a></li></ul></nav></header>
 <main id="main">
-<section class="hero" id="top"><p class="tag">Fine arts student · كا تي ديزاينز</p><h1>Katie Designs</h1><p>Portraits, landscapes, sketches, digital art and paintings.</p>
+<section class="hero" id="top"><span class="badge">Fine arts student · كا تي ديزاينز</span><h1><span class="grad">Katie Designs</span></h1><p>Portraits, landscapes, sketches, digital art and paintings.</p>
 <p><a class="btn" href="#gallery">View gallery</a> <a class="btn ghost" href="#commission">Request a commission</a></p></section>
 
-<section id="gallery" aria-labelledby="g-h"><h2 id="g-h">Gallery</h2>
+<section class="reveal" id="gallery" aria-labelledby="g-h"><h2 id="g-h">Gallery</h2><p class="sub">Tap any artwork to view it larger.</p>
 <div class="filters" role="group" aria-label="Filter by category" id="filters"></div>
 <div class="grid" id="grid"></div>
 <div class="note"><h3>How buying works</h3><ol><li>Tap <b>Buy digital copy</b> on any artwork.</li><li>Tap <b>Pay &amp; download</b> — you'll go to a secure checkout page (Stripe/Gumroad).</li><li>After payment, the high-resolution file is delivered to you instantly by the checkout provider.</li></ol><p>Digital copies are for personal use (prints at home, wallpapers). Originals and prints: please <a href="#contact">get in touch</a>.</p></div>
 </section>
 
-<section id="soon" aria-labelledby="s-h"><h2 id="s-h">New Works, Coming Soon</h2><p>Fresh pieces are on the easel. Check back soon!</p><div class="grid" id="soon-grid"></div></section>
+<section class="reveal" id="soon" aria-labelledby="s-h"><h2 id="s-h">New Works, Coming Soon</h2><p class="sub">Fresh pieces are on the easel. Check back soon!</p><div class="grid" id="soon-grid"></div></section>
 
-<section id="about" aria-labelledby="a-h"><h2 id="a-h">About</h2>
+<section class="reveal" id="about" aria-labelledby="a-h"><h2 id="a-h">About</h2>
 <p>Hi! I'm the artist behind Katie Designs — a fine arts student who loves drawing every kind of artwork: from quiet pencil portraits and expressive oil landscapes to bold digital illustrations.</p>
 <p>I'm always learning, experimenting with new materials, and happy to create something personal for you. <a href="about.html" lang="ar">اقرأ بالعربية</a></p></section>
 
-<section id="commission" aria-labelledby="c-h"><h2 id="c-h">Request a commission</h2>
-<p>Tell me what you'd like and I'll reply by email within a few days. All fields marked * are required.</p>
+<section class="reveal" id="commission" aria-labelledby="c-h"><h2 id="c-h">Request a commission</h2>
+<p class="sub">Tell me what you'd like and I'll reply by email within a few days. All fields marked * are required.</p>
 <form id="cform" method="POST" novalidate>
 <input type="hidden" name="_subject" value="New commission request — Katie Designs"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_template" value="table"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div><label for="name">Your name *</label><input id="name" name="name" autocomplete="name" required><div class="err" id="name-err"></div></div>
@@ -37,7 +38,7 @@
 <div id="thanks" class="ok" hidden tabindex="-1"><h3>Thank you! 🎨</h3><p>Your request was sent. I'll get back to you by email soon.</p></div>
 </section>
 
-<section id="contact" aria-labelledby="ct-h"><h2 id="ct-h">Contact</h2>
+<section class="reveal" id="contact" aria-labelledby="ct-h"><h2 id="ct-h">Contact</h2>
 <p>Email: <a id="mail" href="#">email</a><br>Instagram: <a id="ig" href="#" rel="noopener">@katiedesigns</a></p></section>
 </main>
 <footer>© <span id="yr"></span> Katie Designs · كا تي ديزاينز</footer>
@@ -46,5 +47,5 @@
 <dialog id="buy" aria-labelledby="buy-t"><div class="dlg"><button class="close" aria-label="Close" data-close>×</button>
 <h3 id="buy-t"></h3><p class="tag" id="buy-cat"></p><p style="font-size:1.6rem;margin:.2em 0" id="buy-price"></p>
 <p><b>What you get:</b> a high-resolution digital file (JPG/PNG, print-ready), delivered instantly after payment by the secure checkout.</p>
-<p><a class="btn" id="buy-go" href="#" target="_blank" rel="noopener">Pay &amp; download</a></p><p class="tag">You'll be taken to an external secure checkout. No payment happens on this site.</p></div></dialog>
-<script src="config.js"></script><script src="app.js"></script></body></html>
+<p><a class="btn gold" id="buy-go" href="#" target="_blank" rel="noopener">Pay &amp; download</a></p><p class="tag">You'll be taken to an external secure checkout. No payment happens on this site.</p></div></dialog>
+<script src="config.js"></script><script src="app.js"></script><script src="bg.js"></script></body></html>
