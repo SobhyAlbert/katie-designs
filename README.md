@@ -21,3 +21,5 @@ https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Pro
 `bg.js` paints it once with brush strokes, cross-fades to the image, then stops; repeat visits show the static image (localStorage key `kdStarryPainted`; clear it to replay).
 
 Background plays once per browser session (sessionStorage key `kd-painted-v6`), also with reduced motion. Add `?replay=1` to force it again.
+
+Portrait/narrow screens (≤768px or taller than wide) use Vincent van Gogh, *Café Terrace at Night* (1888), public domain, via Wikimedia Commons (`Vincent_Willem_van_Gogh_015.jpg`), saved as `images/cafe-terrace.jpg`.
