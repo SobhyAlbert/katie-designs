@@ -10,3 +10,6 @@ Static site (index.html, about.html [Arabic], style.css, app.js, config.js). Hos
 1. Upload the image to `images/` (e.g. `images/sunflowers.jpg`, ~1600px wide).
 2. In `config.js` copy a line in `ARTWORKS`, give it a new `id`, `title`, `category` (portraits|landscapes|sketches|digital|painting), `image:"images/sunflowers.jpg"`, `price`, `checkout`, `desc`.
 3. Commit — the site updates in ~1 minute. Leave `image:""` to show a labeled placeholder; `price:0` hides the Buy button.
+
+## Cache busting
+When you change style.css / app.js / config.js / bg.js, bump the `?v=` number on their references in index.html and about.html (e.g. `?v=2` -> `?v=3`) so visitors get the new files.
