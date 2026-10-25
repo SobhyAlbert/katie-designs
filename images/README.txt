@@ -1,0 +1,1 @@
+Put your artwork images here, then reference them in config.js (e.g. images/my-art.jpg).
