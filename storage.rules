@@ -1,0 +1,14 @@
+rules_version = '2';
+// Replace CQujCJMlRfP8nG5lAlwYVeo69OH2 with the owner's UID (same as firestore.rules).
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /artworks/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if request.auth != null && request.auth.uid == "CQujCJMlRfP8nG5lAlwYVeo69OH2"
+        && request.resource.contentType.matches('image/.*')
+        && request.resource.size < 10 * 1024 * 1024;
+      allow delete: if request.auth != null && request.auth.uid == "CQujCJMlRfP8nG5lAlwYVeo69OH2";
+    }
+    match /{allPaths=**} { allow read, write: if false; }
+  }
+}

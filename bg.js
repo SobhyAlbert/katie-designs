@@ -4,7 +4,7 @@
    CSS background. Shown once per browser (localStorage); later visits / pages / reduced
    motion / resize show the static image immediately. Preview: ?bgt=<seconds>. */
 (()=>{const c=document.getElementById("bg");if(!c)return;
-const NARROW=innerWidth<innerHeight||innerWidth<=768,IMG=NARROW?"images/cafe-terrace.jpg?v=6":"images/starry-night.jpg?v=6",KEY="kd-painted-v6";
+const NARROW=innerWidth<innerHeight||innerWidth<=768,IMG=NARROW?"images/cafe-terrace.jpg?v=9":"images/starry-night.jpg?v=9",KEY="kd-painted-v6";
 const q=new URLSearchParams(location.search),ff=q.has("bgt")?+q.get("bgt"):null;
 const still=matchMedia("(prefers-reduced-motion: reduce)").matches,replay=q.has("replay");
 let seen=false;try{localStorage.removeItem("kdStarryPainted");seen=!replay&&sessionStorage.getItem(KEY)==="1";}catch(e){}
