@@ -4,18 +4,18 @@
    CSS background. Shown once per browser (localStorage); later visits / pages / reduced
    motion / resize show the static image immediately. Preview: ?bgt=<seconds>. */
 (()=>{const c=document.getElementById("bg");if(!c)return;
-const IMG="images/starry-night.jpg?v=6",KEY="kd-painted-v6";
+const NARROW=innerWidth<innerHeight||innerWidth<=768,IMG=NARROW?"images/cafe-terrace.jpg?v=6":"images/starry-night.jpg?v=6",KEY="kd-painted-v6";
 const q=new URLSearchParams(location.search),ff=q.has("bgt")?+q.get("bgt"):null;
 const still=matchMedia("(prefers-reduced-motion: reduce)").matches,replay=q.has("replay");
 let seen=false;try{localStorage.removeItem("kdStarryPainted");seen=!replay&&sessionStorage.getItem(KEY)==="1";}catch(e){}
 function showStatic(){let d=document.getElementById("bgstatic");if(!d){d=document.createElement("div");d.id="bgstatic";d.setAttribute("aria-hidden","true");c.after(d);}
- d.style.backgroundImage=`url(${IMG})`;c.remove();}
+ d.style.backgroundImage=`url(${IMG})`;d.style.backgroundPosition=NARROW?"45% 40%":"50% 50%";c.remove();}
 if(ff===null&&seen){showStatic();return;}
 const x=c.getContext("2d");let W,H,S,dpr,raf=0,strokes=[],k=0,t=0,last=0,done=false,img,src,data,sw,sh;
 const PAINT=still?7:9,FADE=1.6; // seconds
 let rs=7;const rnd=()=>{rs=(rs*16807)%2147483647;return(rs-1)/2147483646;};
 function cover(){const mob=W<H,s=Math.max(W/img.width,H/img.height),dw=img.width*s,dh=img.height*s;
- const fx=mob?.22:.5,fy=.5;return[(W-dw)*fx,(H-dh)*fy,dw,dh];}
+ const fx=NARROW?.45:.5,fy=NARROW?.4:.5;return[(W-dw)*fx,(H-dh)*fy,dw,dh];}
 function setup(){dpr=Math.min(1.5,devicePixelRatio||1);W=innerWidth;H=innerHeight;S=Math.min(W,H);
  c.width=W*dpr;c.height=H*dpr;c.style.width=W+"px";c.style.height=H+"px";x.setTransform(dpr,0,0,dpr,0,0);
  x.fillStyle="#030a1f";x.fillRect(0,0,W,H);

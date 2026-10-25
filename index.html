@@ -5,7 +5,8 @@
 <canvas id="bg" aria-hidden="true"></canvas>
 <a class="skip" href="#main">Skip to content</a>
 <header><nav class="nav" aria-label="Main"><a class="logo" href="#top">Katie <span>Designs</span></a>
-<ul><li><a class="l" href="#gallery">Gallery</a></li><li><a class="l" href="#soon">New</a></li><li><a class="l" href="#about">About</a></li><li><a class="l" href="#commission">Commission</a></li><li><a class="l" href="#contact">Contact</a></li><li><a class="l" href="about.html" lang="ar">عربي</a></li></ul></nav></header>
+<button class="menu" id="menu" aria-expanded="false" aria-controls="navlist" aria-label="Menu"><span></span><span></span><span></span></button>
+<ul id="navlist"><li><a class="l" href="#gallery">Gallery</a></li><li><a class="l" href="#soon">New</a></li><li><a class="l" href="#about">About</a></li><li><a class="l" href="#commission">Commission</a></li><li><a class="l" href="#contact">Contact</a></li><li><a class="l" href="about.html" lang="ar">عربي</a></li></ul></nav></header>
 <main id="main">
 <section class="hero" id="top"><span class="badge">Fine arts student · كا تي ديزاينز</span><h1><span class="grad">Katie Designs</span></h1><p>Portraits, landscapes, sketches, digital art and paintings.</p>
 <p><a class="btn" href="#gallery">View gallery</a> <a class="btn ghost" href="#commission">Request a commission</a></p></section>
@@ -48,4 +49,4 @@
 <h3 id="buy-t"></h3><p class="tag" id="buy-cat"></p><p style="font-size:1.6rem;margin:.2em 0" id="buy-price"></p>
 <p><b>What you get:</b> a high-resolution digital file (JPG/PNG, print-ready), delivered instantly after payment by the secure checkout.</p>
 <p><a class="btn gold" id="buy-go" href="#" target="_blank" rel="noopener">Pay &amp; download</a></p><p class="tag">You'll be taken to an external secure checkout. No payment happens on this site.</p></div></dialog>
-<script src="config.js?v=6"></script><script src="app.js?v=6"></script><script src="bg.js?v=6"></script></body></html>
+<script src="config.js?v=6"></script><script src="app.js?v=6"></script><script src="bg.js?v=6"></script><script>(()=>{const m=document.getElementById("menu"),l=document.getElementById("navlist");if(!m)return;const set=o=>{m.setAttribute("aria-expanded",o);l.classList.toggle("open",o)};m.onclick=()=>set(m.getAttribute("aria-expanded")!=="true");l.addEventListener("click",e=>{if(e.target.closest("a"))set(false)});addEventListener("keydown",e=>{if(e.key==="Escape")set(false)})})();</script></body></html>
