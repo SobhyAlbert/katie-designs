@@ -1,12 +1,12 @@
 /* ============================================================
-   KATIE DESIGNS — EDIT EVERYTHING HERE
+   KATY DESIGNS — EDIT EVERYTHING HERE
    To add an artwork: copy one { ... } block, change the fields.
    image:    path to your image (e.g. "images/my-art.jpg") — picsum URLs below are PLACEHOLDER photos; null = "Coming soon" empty frame
    price:    digital copy price (number) — set to 0 to hide the Buy button
    checkout: your Stripe Payment Link / Gumroad URL (PLACEHOLDER below!)
    ============================================================ */
 const SITE = {
-  name: "Katie Designs",
+  name: "Katy Designs",
   currency: "$",
   // PLACEHOLDER: replace with your real email (FormSubmit sends commission requests here)
   formEmail: "your-email@example.com",

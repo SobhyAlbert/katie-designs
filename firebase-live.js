@@ -1,9 +1,9 @@
 // Live gallery: subscribes to Firestore "artworks" (ordered by createdAt) and hands items to app.js.
 // If Firebase isn't configured or fails, the site silently keeps the config.js artworks.
-import { firebaseConfig, SDK, isConfigured } from "./firebase-config.js?v=9";
+import { firebaseConfig, SDK, isConfigured } from "./firebase-config.js?v=10";
 let ready;window.KD_READY=new Promise(r=>ready=r);setTimeout(()=>ready(),4000);
 if (!isConfigured) { ready();
-  console.info("[Katie Designs] Firebase not configured — using config.js artworks.");
+  console.info("[Katy Designs] Firebase not configured — using config.js artworks.");
 } else {
   try {
     const { initializeApp } = await import(`${SDK}/firebase-app.js`);
@@ -25,6 +25,6 @@ if (!isConfigured) { ready();
         image: a.imageUrl, price: Number(a.price) || 0, checkout: a.checkout || "#", desc: a.desc || "", isNew: !!a.isNew };
       }).filter(a => a.image);
       window.KD && window.KD.setRemote(items);
-    }, err => console.warn("[Katie Designs] Firestore unavailable, using config.js:", err.code || err));
-  } catch (e) { ready(); console.warn("[Katie Designs] Firebase failed to load, using config.js:", e); }
+    }, err => console.warn("[Katy Designs] Firestore unavailable, using config.js:", err.code || err));
+  } catch (e) { ready(); console.warn("[Katy Designs] Firebase failed to load, using config.js:", e); }
 }

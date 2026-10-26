@@ -4,7 +4,7 @@ Images are stored in **Firebase Storage**. Each image's details (title, price an
 
 ## 1. Create the project
 1. Go to https://console.firebase.google.com → **Add project**, e.g. `katie-designs`. Google Analytics is optional.
-2. **Project settings (⚙) → General → Your apps → Web (`</>`)**. Register the app (nickname "Katie Designs site"). You don't need Firebase Hosting.
+2. **Project settings (⚙) → General → Your apps → Web (`</>`)**. Register the app (nickname "Katy Designs site"). You don't need Firebase Hosting.
 3. Copy the `firebaseConfig` values into **`firebase-config.js`**: `apiKey`, `authDomain`, `projectId`, `storageBucket`, `messagingSenderId`, `appId`.
    These web keys aren't secret. Access is protected by the rules below.
 

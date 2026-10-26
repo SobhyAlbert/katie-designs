@@ -44,7 +44,7 @@ f.addEventListener("submit",async e=>{e.preventDefault();let ok=true;
  const data=Object.fromEntries(new FormData(f));if(!window.KD||!KD.saveCommission)await (window.KD_READY||Promise.resolve());const btn=f.querySelector("button");btn.disabled=true;btn.textContent="Sending…";
  // 1) Firestore "commissions" (primary). 2) FormSubmit, then mailto (fallback only if the write fails)
  let saved=false;
- if(window.KD&&KD.saveCommission){try{await KD.saveCommission(data);saved=true;}catch(ex){console.warn("[Katie Designs] Commission write failed, using fallback:",ex.code||ex);}}
+ if(window.KD&&KD.saveCommission){try{await KD.saveCommission(data);saved=true;}catch(ex){console.warn("[Katy Designs] Commission write failed, using fallback:",ex.code||ex);}}
  if(!saved) try{const r=await fetch("https://formsubmit.co/ajax/"+SITE.formEmail,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});if(!r.ok)throw 0;}
  catch(_){const body=["name","email","artwork_type","size","description","deadline","budget"].map(k=>`${k}: ${data[k]||""}`).join("\n");
   location.href=`mailto:${SITE.formEmail}?subject=${encodeURIComponent("Commission request")}&body=${encodeURIComponent(body)}`;}

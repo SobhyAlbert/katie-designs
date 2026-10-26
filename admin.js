@@ -1,4 +1,4 @@
-import { firebaseConfig, SDK, isConfigured } from "./firebase-config.js?v=9";
+import { firebaseConfig, SDK, isConfigured } from "./firebase-config.js?v=10";
 const $ = s => document.querySelector(s);
 const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const msg = (el, t, cls = "") => { el.textContent = t; el.className = "msg " + cls; };

@@ -1,4 +1,4 @@
-# Katie Designs (كا تي ديزاينز) — art portfolio
+# Katy Designs (كاتي ديزاينز) — art portfolio
 Static site (index.html, about.html [Arabic], style.css, app.js, config.js). Hosted on GitHub Pages.
 
 ## Edit everything in `config.js`
